@@ -26,12 +26,19 @@ public class Plateau {
 		
 	}
 	
-	private boolean estVide(int x,int y){
+	/*private boolean estVide(int x,int y){
 		return tab[x][y].getCouleur()==0;
-	}
+	}*/
 	
 	public void ajouterPion(Pion p){
 		tab[p.getX()][p.getY()].setCouleur(p.getCouleur());
+	}
+	
+	public void echangerCouleur(Pion p){
+	
+		p.echangerCouleur();
+		this.ajouterPion(p);
+		
 	}
 	
 	public String toString() {

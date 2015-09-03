@@ -11,9 +11,9 @@ public class Test {
 		System.out.println("\n\n\n\n");
 		System.out.println(a);
 
-		/*p.echangerCouleur();
+		a.echangerCouleur(p);
 		System.out.println("\n\n\n\n");
-		System.out.println(a);*/
+		System.out.println(a);
 	}
 	
 }

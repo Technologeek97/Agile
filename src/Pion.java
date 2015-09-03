@@ -59,10 +59,5 @@ public class Pion
 		}
 		return s;
 	}
-	
-	@Override
-	public String toString() 
-	{
-		return this.couleur==-1 ? "X":this.couleur==1 ? "0":" " ;
-	}
+
 }

@@ -26,10 +26,10 @@ public class PionTest
 	}
 	
 	@Test
-	public void test_EchangerCouleur()
+	public void test_echangerCouleur()
 	{
 		Pion p = new Pion(10,20,1);
-		p.EchangerCouleur();
+		p.echangerCouleur();
 		if(p.getCouleur()!=-1)
 		{
 			fail("retourne mal");
