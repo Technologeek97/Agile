@@ -59,5 +59,8 @@ public class Pion
 		}
 		return s;
 	}
-
+	
+	public boolean estCouleurOpposee(Pion p){
+		return p.getCouleur() == this.getCouleur()*-1;
+	}
 }
