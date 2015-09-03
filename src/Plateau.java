@@ -42,13 +42,15 @@ public class Plateau {
 	}
 	
 	public String toString() {
-		String ligne = " + - + - + - + - + - + - + - + - +\n";
+		String ligne="    A   B   C   D   E   F   G   H  \n";
+		 ligne+= "  + - + - + - + - + - + - + - + - +\n";
 		for (int i=0; i<=7; i++) {
+			ligne+= i+1;
 			for (int j=0; j<=7; j++) {
 				ligne += " | "+ tab[i][j] + ""; 
 			}
 			ligne+=" |\n";
-			ligne+=" + - + - + - + - + - + - + - + - +\n";
+			ligne+="  + - + - + - + - + - + - + - + - +\n";
 		}
 		return ligne;
 	}
