@@ -45,4 +45,10 @@ public class Pion
 	{
 		this.couleur *=-1;
 	}
+	
+	@Override
+	public String toString() 
+	{
+		return this.couleur==-1 ? "X":this.couleur==1 ? "0":" " ;
+	}
 }
