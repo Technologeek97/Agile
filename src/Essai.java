@@ -2,14 +2,17 @@ import java.util.Scanner;
 
 public class Essai {
 	
-	static Plateau a = new Plateau();
-	static boolean fin = false;
-	static int joueur = 0;
+	Plateau a = new Plateau();
+	boolean fin = false;
+	int joueur = 0;
 	
 	
 	public static void main(String args[]) {
-
-		
+		new Essai();
+	}
+	
+	Essai()
+	{
 		while(!fin){
 		System.out.println(a);
 
@@ -51,7 +54,7 @@ public class Essai {
 
 	}
 	
-	private static boolean verifierFin() {
+	private boolean verifierFin() {
 		boolean areturn=true;
 		boolean resteNoir = false;
 		boolean resteBlanc = false;
@@ -74,7 +77,7 @@ public class Essai {
 		return areturn;
 	}
 
-	private static void poserUnPion(String coord) {
+	private void poserUnPion(String coord) {
 		char premier = coord.charAt(0);
 		char deuxieme = coord.charAt(1);
 		int y;
@@ -91,10 +94,17 @@ public class Essai {
 				x -= 65;
 			}
 			if (a.tab[y][x].getCouleur() == 0) {
-				a.ajouterPion(new Pion(y, x, joueur == 1 ? -1:1)); // TODO Changer le 1 quand on
-													// aura les joueurs
+				String chemain = estPosable(new Pion(y, x, joueur == 1 ? -1:1),a);
+				if(chemain.equals(""))
+				{
+					System.err.println("coup rejeté: vous devez prendre pour jouer");
+					joueur = ++joueur%2;
+				}
+				
+				a.ajouterPion(new Pion(y, x, joueur == 1 ? -1:1)); 
 			} else {
 				System.err.println("Coup rejeté : place occupée");
+				joueur = ++joueur%2;
 			}
 		} catch (NumberFormatException e) {
 			try {
@@ -107,15 +117,23 @@ public class Essai {
 					x -= 65;
 				}
 				if (a.tab[y][x].getCouleur() == 0) {
-					a.ajouterPion(new Pion(y, x, joueur == 1 ? -1:1)); // TODO Changer le 1 quand
-														// on aura les joueurs
+					String chemain = estPosable(new Pion(y, x, joueur == 1 ? -1:1),a);
+					if(chemain.equals(""))
+					{
+						System.err.println("coup rejeté: vous devez prendre pour jouer");
+						joueur = ++joueur%2;
+					}
+					a.ajouterPion(new Pion(y, x, joueur == 1 ? -1:1)); 
 				} else {
 					System.err.println("Coup rejeté : place occupée");
+					joueur = ++joueur%2;
 				}
 			} catch (NumberFormatException er) {
 				System.err.println("coup rejeté");
+				joueur = ++joueur%2;
 			} catch (Exception err) {
 				System.err.println("coup rejeté");
+				joueur = ++joueur%2;
 
 			}
 		}
@@ -124,6 +142,12 @@ public class Essai {
 			System.err.println("coup rejeté");
 
 		}
+	}
+
+	private String estPosable(Pion pion, Plateau a2) 
+	{
+		// TODO Auto-generated method stub
+		return "TODO";
 	}
 
 }
