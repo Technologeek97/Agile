@@ -41,8 +41,22 @@ public class Pion
 		this.couleur = couleur;
 	}
 	
-	public void EchangerCouleur()
+	public void echangerCouleur()
 	{
-		this.couleur *=-1;
+		this.setCouleur(this.couleur*-1);
+	}
+	
+	public String toString(){
+		String s = "";
+		if(this.getCouleur()==0){
+			s=" ";
+		}
+		else if(this.getCouleur()==1){
+			s="O";
+		}
+		else if(this.getCouleur()==-1){
+			s="X";
+		}
+		return s;
 	}
 }
