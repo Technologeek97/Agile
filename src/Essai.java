@@ -144,10 +144,61 @@ public class Essai {
 		}
 	}
 
-	private String estPosable(Pion pion, Plateau a2) 
-	{
-		// TODO Auto-generated method stub
-		return "TODO";
+	public String estPosable(Pion p, Plateau tab) {
+		String chemins = "";
+		String tmp = "";
+		
+		for (int x = -1; x <= 1; x++) {
+			for (int y = -1; y <= 1; y++) {
+				int currentX = p.getX() + x;
+				int currentY = p.getY() + y;
+				if (estDansPlateau(currentX, currentY)) {
+					if (p.estCouleurOpposee(tab.getPion(currentX, currentY))) {
+						tmp = "";
+						tmp += addPointToRevert(p.getX(), p.getY());
+						tmp += addPointToRevert(currentX, currentY);
+						
+						int pas = 1;
+						boolean b = false;
+						while (estDansPlateau(currentX - p.getX()+(x*pas),
+								currentY - p.getY()+(y* pas))
+								&& tab.getPion((p.getX() -p.getX()+(x*pas)),
+										p.getY() - p.getY()+(y*pas)).estVide()
+								&& !b) {
+
+							tmp += (currentX - p.getX()+ (x * pas)) + " ";
+							tmp += (currentY - p.getY()+ (y * pas)) + " ";
+
+							if (!p.estCouleurOpposee(tab
+									.getPion(currentX - p.getX()+(x*pas),
+											currentY - p.getY()+(y* pas)))) {
+								b = true;
+								chemins += tmp + "";
+							}
+							pas++;
+						}
+					}
+				}
+			}
+		}
+		return chemins;
 	}
+
+	private String addPointToRevert(int x, int y) {
+		return x + " " + y + " ";
+	}
+
+	public boolean estDansPlateau(int x, int y) {
+		return x >= 0 || x < 8 || y >= 0 || x < 8;
+	}
+	
+	/* public String chercheChemin(int currentX, int currentY, Plateau tab, Pion p){
+		 	
+	 }*/
+	 
+	 
+	 
+}
+
 
 }
