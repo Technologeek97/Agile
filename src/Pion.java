@@ -3,6 +3,8 @@ public class Pion
 	private int x;
 	private int y;
 	private int couleur;//0 vide -1 noir 1 blanc
+	public static final int NOIR = -1;
+	public static final int BLANC = 1;
 	
 	Pion(int x,int y,int couleur)
 	{

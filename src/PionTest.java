@@ -5,6 +5,8 @@ import org.junit.Test;
 
 public class PionTest 
 {
+	static Plateau a = new Plateau();
+	
 	@Test
 	public void test_constructeur() 
 	{
@@ -62,5 +64,24 @@ public class PionTest
 			fail("noir");
 		}
 	}
+	
+	/*public void test_inverserLigne()
+	{
+		String s = "0 0 0 1 0 2 0 3 0 4";
+		Pion p0 = new Pion (0,0,1);
+		Pion p1 = new Pion (0,1,-1);
+		Pion p2 = new Pion (0,2,-1);
+		Pion p3 = new Pion (0,3,-1);
+		Pion p4 = new Pion (0,4,1);
+		a.ajouterPion(p0);
+		a.ajouterPion(p1);
+		a.ajouterPion(p2);
+		a.ajouterPion(p3);
+		a.ajouterPion(p4);
+		
+		if (a.inverserLigne(s)) {
+			
+		}
+	}*/
 
 }
