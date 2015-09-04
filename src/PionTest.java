@@ -50,8 +50,7 @@ public class PionTest
 		Pion pb = new Pion(1,2,1);
 		Pion p = new Pion(3,4,0);
 		Pion pn = new Pion(5,6,-1);
-		
-		if(!pb.toString().equals("0"))
+		if(!pb.toString().equals("O"))
 		{
 			fail("blanc");
 		}
