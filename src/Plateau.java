@@ -1,7 +1,8 @@
 
 public class Plateau {
 
-	private Pion[][] tab;
+	
+	Pion[][] tab;
 
 	public Plateau() {
 		tab = new Pion[8][8];
@@ -45,6 +46,18 @@ public class Plateau {
 	public Pion getPion(int x, int y) {
 		return tab[x][y];
 	}
+	
+	public int getScore(int couleur) {
+		int score = 0;
+		for (int i = 0; i <= 7; i++) {
+			for (int j = 0; j <= 7; j++) {
+				if (tab[i][j].getCouleur() == couleur)
+				score++;
+			}
+		}
+		return score;
+		
+	}
 
 	public String toString() {
 		String ligne = "    A   B   C   D   E   F   G   H  \n";
@@ -53,8 +66,22 @@ public class Plateau {
 			ligne += i + 1;
 			for (int j = 0; j <= 7; j++) {
 				ligne += " | " + tab[i][j] + "";
+				
 			}
-			ligne += " |\n";
+			
+
+			if(i==3){
+				ligne += " |";
+				ligne +="\t Score - Rond : "+getScore(1)+"\n";
+				
+			}
+			else if(i==4){
+				ligne += " |";
+				ligne +="\t Score - Croix : "+getScore(-1)+ "\n";
+			}
+			else {
+				ligne += " |\n";
+			}
 			ligne += "  + - + - + - + - + - + - + - + - +\n";
 		}
 		return ligne;
