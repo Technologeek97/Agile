@@ -7,6 +7,7 @@ public class Menu
 	{
 		while(true)
 		{
+			System.out.println("Bienvenue dans Othello");
 			System.out.println(" 1-Jouer \n 2-Règles \n 3-Quitter");
 			System.out.println("Indiquez un chiffre :");
 			Scanner s = new Scanner(System.in);
