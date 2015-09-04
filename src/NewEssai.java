@@ -11,6 +11,7 @@ public class NewEssai {
 	}
 
 	NewEssai() {
+		System.out.println("Les O commencent la partie !");
 		while (!fin) {
 			System.out.println(a);
 
