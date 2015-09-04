@@ -5,10 +5,6 @@ public class NewEssai {
 	boolean fin = false;
 	int joueur = 0;
 
-	public static void main(String[] args) {
-
-		new NewEssai();
-	}
 
 	NewEssai() {
 		System.out.println("Les O commencent la partie !");
@@ -65,8 +61,7 @@ public class NewEssai {
 		System.out.println(a);
 		if (score == 0) {
 			System.out.println("match null; nice job ;-P");
-		} else {
-			System.out.println("Le joueur "
+		} else {			System.out.println("Le joueur "
 					+ (score > 0 ? "1 (blanc)" : "2(noir)") + " a gagné");
 		}
 
