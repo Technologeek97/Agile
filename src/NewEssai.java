@@ -20,7 +20,13 @@ public class NewEssai {
 			System.out.println("Joueur " + (joueur + 1)
 					+ " : Entrez vos coordonnées :");
 
-			String coord = scan.nextLine();
+			String coord = scan.nextLine() ;
+			
+				
+			while(!coord.matches("[A-H]{1}[1-8]{1}")){
+				System.out.println("Entrez des coordonnées valides !");
+				coord = scan.nextLine();
+			}
 
 			Pion pos1 = poserUnPion(coord);
 			
@@ -30,6 +36,11 @@ public class NewEssai {
 				
 			System.out.println("Entrez les coordonnées de l'autre extrémité pour retourner la ligne");
 			String coord2 = scan.nextLine();
+			while(!coord2.matches("[A-H]{1}[1-8]{1}")){
+				System.out.println("Entrez des coordonnées valides !");
+				coord2 = scan.nextLine();
+			}
+			
 			Pion pos2 = poserUnPion(coord2);
 					
 			
@@ -61,6 +72,9 @@ public class NewEssai {
 
 	}
 
+	
+
+	
 	private Pion poserUnPion(String coord) {
 		char premier = coord.charAt(0);
 		char deuxieme = coord.charAt(1);
@@ -77,9 +91,9 @@ public class NewEssai {
 			if (x > 64 && x < 73) {
 				x -= 65;
 			}
-			
+			if (a.tab[y][x].getCouleur() == 0) {
 			a.ajouterPion(new Pion(y, x, joueur == 1 ? -1:1)); 
-				
+			}
 		
 			
 		} catch (NumberFormatException e) {
@@ -93,13 +107,14 @@ public class NewEssai {
 					x -= 65;
 				}
 				
-				a.ajouterPion(new Pion(y, x, joueur == 1 ? -1:1)); 
-				
+				if (a.tab[y][x].getCouleur() == 0) {
+					a.ajouterPion(new Pion(y, x, joueur == 1 ? -1:1)); 
+				}
 		
 		}
 		return new Pion(y,x,joueur);
 
-		}
+	}
 
 	private boolean verifierFin() {
 		boolean areturn = true;
